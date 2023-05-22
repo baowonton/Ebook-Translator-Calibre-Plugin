@@ -87,6 +87,8 @@ class Translation:
         if translation is not None:
             self._log(_('Translation (Cached): {}').format(translation))
             self.need_sleep = False
+        elif original is None or original.strip() == '':
+            self._log('empty here')
         else:
             original = self.glossary.replace(original)
             translation = self._translate_text(original)
