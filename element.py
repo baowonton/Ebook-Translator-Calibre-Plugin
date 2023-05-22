@@ -46,6 +46,8 @@ class Element:
 
     def add_translation(
             self, translation, position=None, lang=None, color=None):
+        if translation is None or translation.strip() == '':
+            return ''
         translation = xml_escape(translation)
         for rid, reserve in enumerate(self.reserves):
             # Escape the potential regex metacharacters in text.
